@@ -8,7 +8,9 @@ var VideoListView = Backbone.View.extend({
     this.$el.children().detach();
     this.$el.html(this.template());
 
-    // var greed = this.co  llection.map((video)=>{ return video.collection.models; });
+    this.$('.video-list').append(this.collection.map( video => {
+      return new VideoListEntryView({model: video}).render().$el;
+    }));
     
     return this;
 
